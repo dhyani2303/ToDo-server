@@ -1,10 +1,11 @@
 const express=require("express");
 const router=express.Router();
 const verifyToken=require("../verifyToken");
-const {addtodo,gettodo}=require("../controllers/todo");
+const {addtodo,gettodo,deletetodo}=require("../controllers/todo");
 
-router.post("/",verifyToken,addtodo);
-router.get("/",verifyToken,gettodo);
+router.post("/",addtodo);
+router.get("/",gettodo);
+router.delete("/",deletetodo)
 
 
 module.exports=router;

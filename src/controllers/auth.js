@@ -57,8 +57,7 @@ if(login){
       const data={
         email:email,
         name:login.name,
-        subscribers:login.subscribers,
-        subscribedUsers:login.subscribedUsers
+        id:login._id
       }
       const token=jwt.sign({id:login._id},process.env.JWT)
       res.cookie("access_token",token,{

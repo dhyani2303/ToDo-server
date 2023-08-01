@@ -31,12 +31,22 @@ const gettodo=async(req,res,next)=>{
         const userid = req.query.userid;
         const task = await todo.find({ userid: userid }, { task: 1, _id: 1 });
     
-       successResponseWithData(res,"",task);
+       successResponseWithData(res,"Fetched the tasks",task);
         // console.log(task);
       } catch (e) {
         next(e)
       }
 }
+const deletetodo=async(req,res,next)=>{
+  try{
+    const taskid=req.query._id;
+    const deleted=await todo.findByIdAndDelete(taskid);
+    successResponse(res,"Deleted the task");
+
+  }catch(e){
+    next(e);
+  }
+}
 
 
-module.exports={addtodo,gettodo};
+module.exports={addtodo,gettodo,deletetodo};

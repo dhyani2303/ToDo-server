@@ -1,4 +1,4 @@
-//import { signup } from "../controllers/auth";
+
 const {signup,signin}=require("../controllers/auth");
 const express=require("express");
 
@@ -11,7 +11,6 @@ app.post("/signup",signup);
 
 //Sign in
 app.post("/signin",signin); 
-//google authentication
-//router.post("/google",)
+
 
 module.exports=app;
